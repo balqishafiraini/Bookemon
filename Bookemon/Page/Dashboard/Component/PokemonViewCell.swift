@@ -38,12 +38,12 @@ class PokemonViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
-    private lazy var imageContainerView: UIView = {
-           let view = UIView()
-           view.translatesAutoresizingMaskIntoConstraints = false
-           return view
-       }()
+    
+    lazy var imageContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -82,7 +82,6 @@ class PokemonViewCell: UITableViewCell {
             evolvesFromLabel.topAnchor.constraint(equalTo: typesLabel.bottomAnchor, constant: 4),
             evolvesFromLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
-        pokemonImageView.contentMode = .scaleAspectFit
     }
 
     func configure(with pokemon: PokemonData) {

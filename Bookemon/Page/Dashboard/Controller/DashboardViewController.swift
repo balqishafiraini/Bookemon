@@ -10,16 +10,16 @@ import UIKit
 class DashboardViewController: UIViewController {
     
     private var pokemons: [PokemonData] = [] {
-            didSet {
-                dashboardView.tableView.reloadData()
-            }
+        didSet {
+            dashboardView.tableView.reloadData()
         }
-        
-        private var filteredPokemons: [PokemonData] = [] {
-            didSet {
-                dashboardView.tableView.reloadData()
-            }
+    }
+    
+    private var filteredPokemons: [PokemonData] = [] {
+        didSet {
+            dashboardView.tableView.reloadData()
         }
+    }
     
     private var currentPage = 1
     private let pokemonAPI = PokemonAPI()
@@ -107,12 +107,12 @@ extension DashboardViewController: SearchBarDelegate {
         } else {
             filteredPokemons = pokemons.filter { pokemon in
                 return pokemon.name.lowercased().contains(query.lowercased()) ||
-                    (pokemon.evolvesFrom ?? "").lowercased().contains(query.lowercased()) ||
-                    pokemon.types.contains { $0.lowercased().contains(query.lowercased()) }
+                (pokemon.evolvesFrom ?? "").lowercased().contains(query.lowercased()) ||
+                pokemon.types.contains { $0.lowercased().contains(query.lowercased()) }
             }
         }
     }
     func didTapSearchButton() {
-           dashboardView.searchBarView.searchBar.resignFirstResponder()
-       }
+        dashboardView.searchBarView.searchBar.resignFirstResponder()
+    }
 }
