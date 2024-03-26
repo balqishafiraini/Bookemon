@@ -25,7 +25,7 @@ class DashboardView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 40)
         label.text = "Bookemon"
-        label.textColor = .white
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,6 +41,7 @@ class DashboardView: UIView {
     }
         
     private func setupViews() {
+        self.backgroundColor = .white
         addSubview(bookemonLabel)
         addSubview(searchBarView)
         addSubview(tableView)

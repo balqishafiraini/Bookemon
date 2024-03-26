@@ -17,8 +17,6 @@ struct PokemonData: Codable {
     let types: [String]
     let evolvesFrom: String?
     let images: Image
-    let level: String
-    let hp: String
 }
 
 struct Image: Codable {

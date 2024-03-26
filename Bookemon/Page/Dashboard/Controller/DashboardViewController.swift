@@ -112,4 +112,7 @@ extension DashboardViewController: SearchBarDelegate {
             }
         }
     }
+    func didTapSearchButton() {
+           dashboardView.searchBarView.searchBar.resignFirstResponder() // Dismiss the keyboard
+       }
 }
