@@ -56,10 +56,8 @@ class PokemonDetailsView: UIView {
            
            addSubview(scrollView)
            scrollView.addSubview(contentView)
-           
            contentView.addSubview(imageContainerView)
            imageContainerView.addSubview(imageView)
-           
            contentView.addSubview(nameLabel)
            
            NSLayoutConstraint.activate([

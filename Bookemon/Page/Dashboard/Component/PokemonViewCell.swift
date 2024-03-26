@@ -39,6 +39,12 @@ class PokemonViewCell: UITableViewCell {
         return imageView
     }()
 
+    private lazy var imageContainerView: UIView = {
+           let view = UIView()
+           view.translatesAutoresizingMaskIntoConstraints = false
+           return view
+       }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -50,16 +56,24 @@ class PokemonViewCell: UITableViewCell {
     }
 
     private func setupViews() {
+        addSubview(imageContainerView)
+        imageContainerView.addSubview(pokemonImageView)
         addSubview(nameLabel)
         addSubview(typesLabel)
         addSubview(evolvesFromLabel)
-        addSubview(pokemonImageView)
+        
         
         NSLayoutConstraint.activate([
-            pokemonImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            pokemonImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageContainerView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imageContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageContainerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height*0.3),
+            
+            pokemonImageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
+            pokemonImageView.leadingAnchor.constraint(equalTo: imageContainerView.leadingAnchor),
+            pokemonImageView.trailingAnchor.constraint(equalTo: imageContainerView.trailingAnchor),
+            pokemonImageView.bottomAnchor.constraint(equalTo: imageContainerView.bottomAnchor),
 
-            nameLabel.topAnchor.constraint(equalTo: pokemonImageView.bottomAnchor, constant: 4),
+            nameLabel.topAnchor.constraint(equalTo: imageContainerView.bottomAnchor, constant: 8),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             typesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
@@ -67,8 +81,8 @@ class PokemonViewCell: UITableViewCell {
             
             evolvesFromLabel.topAnchor.constraint(equalTo: typesLabel.bottomAnchor, constant: 4),
             evolvesFromLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            evolvesFromLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
+        pokemonImageView.contentMode = .scaleAspectFit
     }
 
     func configure(with pokemon: PokemonData) {
