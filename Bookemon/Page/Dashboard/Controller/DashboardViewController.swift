@@ -44,7 +44,7 @@ class DashboardViewController: UIViewController {
     }
     
     private func fetchPokemonData(_ page: Int) {
-        pokemonAPI.fetchNumberData(page: page) { [weak self] pokemons, error in
+        pokemonAPI.fetchPokemonData(page: page) { [weak self] pokemons, error in
             guard let self = self else { return }
             
             if let error = error {

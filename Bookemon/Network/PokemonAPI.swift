@@ -11,7 +11,7 @@ class PokemonAPI {
     
     private var tasks: [URLSessionDataTask] = []
     
-    func fetchNumberData(page: Int, completion: @escaping ([PokemonData]?, Error?) -> Void) {
+    func fetchPokemonData(page: Int, completion: @escaping ([PokemonData]?, Error?) -> Void) {
         guard NetworkManager.shared.isConnectedToNetwork() else {
             completion(nil, NSError(domain: "PokemonAPI", code: 0, userInfo: [NSLocalizedDescriptionKey: "No internet connection."]))
             return
