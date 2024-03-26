@@ -36,7 +36,6 @@ class DashboardViewController: UIViewController {
         dashboardView.tableView.delegate = self
         dashboardView.searchBarView.delegate = self
         dashboardView.tableView.register(PokemonViewCell.self, forCellReuseIdentifier: PokemonViewCell.reuseIdentifier)
-        view.hideKeyboardWhenTappedAround()
         initialFetch()
     }
     

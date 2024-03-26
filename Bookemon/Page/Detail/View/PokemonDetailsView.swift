@@ -74,6 +74,8 @@ class PokemonDetailsView: UIView {
         contentView.addSubview(imageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(evolvesToLabel)
+        contentView.addSubview(levelLabel)
+        contentView.addSubview(hpLabel)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),

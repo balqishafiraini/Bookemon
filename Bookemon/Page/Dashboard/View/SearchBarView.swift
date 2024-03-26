@@ -45,7 +45,6 @@ class SearchBarView: UIView, UISearchBarDelegate {
         ])
     }
     
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         delegate?.didChangeSearchQuery(searchText)
     }
