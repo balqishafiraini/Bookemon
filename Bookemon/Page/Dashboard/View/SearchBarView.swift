@@ -65,6 +65,10 @@ class SearchBarView: UIView, UISearchBarDelegate {
         delegate?.didChangeSearchQuery(searchText)
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.endEditing(true)
+        }
+    
     @objc func searchButtonTapped() {
         delegate?.didTapSearchButton()
     }
