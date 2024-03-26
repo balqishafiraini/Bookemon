@@ -40,10 +40,10 @@ class DashboardViewController: UIViewController {
     }
     
     private func initialFetch() {
-        fetchNumberData(currentPage)
+        fetchPokemonData(currentPage)
     }
     
-    private func fetchNumberData(_ page: Int) {
+    private func fetchPokemonData(_ page: Int) {
         pokemonAPI.fetchNumberData(page: page) { [weak self] pokemons, error in
             guard let self = self else { return }
             
@@ -95,7 +95,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == pokemons.count - 1 {
-            fetchNumberData(currentPage)
+            fetchPokemonData(currentPage)
         }
     }
 }
@@ -113,6 +113,6 @@ extension DashboardViewController: SearchBarDelegate {
         }
     }
     func didTapSearchButton() {
-           dashboardView.searchBarView.searchBar.resignFirstResponder() // Dismiss the keyboard
+           dashboardView.searchBarView.searchBar.resignFirstResponder()
        }
 }
