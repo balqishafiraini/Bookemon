@@ -23,7 +23,7 @@ class DashboardView: UIView {
     
     lazy var bookemonLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 40)
+        label.font = UIFont.boldSystemFont(ofSize: 30)
         label.text = "Bookemon"
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
